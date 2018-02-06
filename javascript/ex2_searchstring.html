@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function myFucntion() {
+      if(document.getElementById("input_no").checked){
+      var Sentence = document.getElementById("txt_area").value;
+      var word =  document.getElementById("txt_input").value;
+      var searchword = new RegExp(word,'gi');
+      var matches = Sentence.match(searchword);
+      if (matches == null) {
+        document.getElementById("Result").innerHTML = "No results";
+        return;
+      }
+      else {
+        document.getElementById("Result").innerHTML = matches.length;
+      }
+    }
+    if(document.getElementById("input_yes").checked){
+      var Sentence = document.getElementById("txt_area").value;
+      var word =  document.getElementById("txt_input").value;
+      var searchword = new RegExp(word,"g");
+      var matches = Sentence.match(searchword);
+      if (matches == null) {
+        document.getElementById("Result").innerHTML = "No results";
+        return;
+      }
+      else {
+        document.getElementById("Result").innerHTML = matches.length;
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+<center>
+    Text Input :
+    <textarea rows="4" cols="50" id="txt_area"></textarea>
+    <br><br>
+    <form action="">
+    Sensitive Case :
+    <input type="radio" name="yes_no" id="input_yes"> Yes
+    <input type="radio" name="yes_no"  id="input_no"> No<br><br>
+    </form>
+    Search :
+    <input type="text" id="txt_input"><br><br>
+    <button type="button" name="Search" id="btn_search" onclick="myFucntion()">Search</button>
+    <br><br>
+    Result for Search :
+    <p id="Result" style="display:inline"></p>
+</center>
+</body>
+</html>
