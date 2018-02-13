@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="utf-8">
+			<title>randomNumber</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script>
+				$(document).ready(function(){
+					var check = 0;
+				       	$('#random').click(function(){
+								    var x = Math.floor((Math.random()* 999)+ 1);
+								    var y = Math.floor((Math.random()* 999)+ 1);
+								    $('#value').text(x+" + "+y);
+								    check = x + y;
+					    	});
+				        $('#ans').click(function(){
+					        	var result = $('#result').val();
+					        	if(result==check){
+					        		$('#text-ans').text("That's correct");
+					        		$('#text-ans').css("color", "green");
+					        	}
+										else{
+					        		$('#text-ans').text("That's wrong. The answer is " + check);
+					        		$('#text-ans').css("color", "red");
+				        		}
+
+				        });
+				});
+			</script>
+	</head>
+	<body>
+			<center>
+				<h1>Ex-Random Number For Answer</h1>
+				<hr>
+				<button type="button" name="random" id="random" >Random Number</button>
+				<br><br><br>
+				<div><span id="value"></span> = <input type="text" name="result" id="result"></div>
+				<br><br>
+				<button type="button" name="ans" id="ans">Send Answer</button><br><br>
+				Result : <h2 id="text-ans"></h2>
+			</center>
+	</body>
+</html>
